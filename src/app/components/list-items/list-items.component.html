@@ -1,0 +1,21 @@
+<h2 class="my-3">Products</h2>
+@if (items.length > 0) {
+    <table class="table table-hover table-striped">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Product</th>
+                <th>Price</th>
+                <th>Quantity</th>
+                <th>Remove</th>
+            </tr>
+        </thead>
+        <tbody>
+            @for (p of items; track $index) {
+            <tr row-item [item]="p" (removeEventEmiter)="onRemove($event)"></tr>
+        }
+        </tbody>
+    </table>
+}@else {
+    <p class="alert alert-warning">No existen items</p>
+}
